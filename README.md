@@ -5,3 +5,5 @@ Bezier Spline Editor for Unity
 
 Create and modify splines path directly inside Unity Editor. Just attach a Bezier Spline component to any GameObject.
 You add and remove points by selecting curves extents (dark blue points) and pressing corresponding buttons in the inspector gui.
+
+Based on Jasper Flick tutorial about splines (http://catlikecoding.com/unity/tutorials/curves-and-splines/)
