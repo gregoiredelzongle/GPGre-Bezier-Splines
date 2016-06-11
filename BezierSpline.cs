@@ -443,6 +443,13 @@ namespace GPGre.QuadraticBezier
         #endregion
 
 		#region Spline Misc Utilities Methods
+
+		/// <summary>
+		/// Gets the nearest point on spline.
+		/// </summary>
+		/// <returns>The nearest point on spline.</returns>
+		/// <param name="point">Point.</param>
+		/// <param name="precision">Precision.</param>
 		public float GetNearestPointOnSpline(Vector3 point, int precision = 10)
 		{
 			float step = 1 / (float)SplineDistance;
