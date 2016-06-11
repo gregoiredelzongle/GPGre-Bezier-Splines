@@ -442,6 +442,42 @@ namespace GPGre.QuadraticBezier
 
         #endregion
 
+		#region Spline Misc Utilities Methods
+		public float GetNearestPointOnSpline(Vector3 point, int precision = 10)
+		{
+			float step = 1 / (float)SplineDistance;
+
+			float Res = 0;
+			float Ref = float.MaxValue;
+
+			for (int i = 0; i < SplineDistance; i++)
+			{
+				float t = step*i;
+				float L = (GetPointUniform(t)-point).sqrMagnitude;
+				if (L < Ref)
+				{
+					Ref = L;
+					Res = t;
+				}
+			}
+
+			float min = Mathf.Clamp01 (Res - (step / 2));
+			float max = Mathf.Clamp01 (Res + (step / 2));
+
+			for (int i = 0; i < precision; i++) {
+				float lMin = (GetPointUniform(min)-point).sqrMagnitude;				
+				float lMax = (GetPointUniform(max)-point).sqrMagnitude;
+				if (lMin > lMax)
+					min += (max - min) / 2;
+				else
+					max -= (max - min) / 2;
+			}
+
+			return (min + max) / 2;
+
+		}
+		#endregion
+
         #region Spline Creation Utilities Methods
 
         /// <summary>
