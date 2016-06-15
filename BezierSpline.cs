@@ -359,7 +359,7 @@ namespace GPGre.QuadraticBezier
 
             }
             index *= 3;
-
+			t = Mathf.Clamp01 (t);
             return transform.TransformPoint(Bezier.GetPoint(points[index], points[index + 1], points[index + 2], points[index + 3], t));
         }
 
